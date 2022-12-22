@@ -1,0 +1,6 @@
+@OCamlStdlibDir@/ocaml-migrate-parsetree/META
+@OCamlStdlibDir@/ocaml-migrate-parsetree/opam
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cma
+DYN: @OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmxs
+
+usr/doc/ocaml-migrate-parsetree/{CHANGES.md,README.md,MANUAL.md,LICENSE.md} /usr/share/doc/ocaml-migrate-parsetree/

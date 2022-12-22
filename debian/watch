@@ -1,0 +1,2 @@
+version=3
+https://github.com/ocaml-ppx/ocaml-migrate-parsetree/releases .*ocaml-migrate-parsetree-v?([0-9.]+)\.tbz

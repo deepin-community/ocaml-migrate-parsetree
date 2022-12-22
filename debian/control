@@ -1,0 +1,53 @@
+Source: ocaml-migrate-parsetree
+Section: ocaml
+Priority: optional
+Maintainer: Debian OCaml Maintainers <debian-ocaml-maint@lists.debian.org>
+Uploaders: Andy Li <andy@onthewings.net>
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ ocaml-nox,
+ ocaml-dune (>= 2),
+ libppx-derivers-ocaml-dev,
+ libresult-ocaml-dev,
+ ocaml-compiler-libs,
+ ocaml-findlib,
+ dh-ocaml
+Homepage: https://github.com/ocaml-ppx/ocaml-migrate-parsetree
+Vcs-Browser: https://salsa.debian.org/ocaml-team/ocaml-migrate-parsetree
+Vcs-Git: https://salsa.debian.org/ocaml-team/ocaml-migrate-parsetree.git
+
+Package: libmigrate-parsetree-ocaml
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${ocaml:Depends}
+Provides:
+ ${ocaml:Provides}
+Recommends: ocaml-findlib
+Description: Convert OCaml parsetrees between different major versions (Runtime library)
+ This library converts between parsetrees of different OCaml versions.
+ For each version, there is a snapshot of the parsetree and conversion
+ functions to the next and/or previous version.
+ .
+ This package contains the runtime library.
+
+Package: libmigrate-parsetree-ocaml-dev
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${ocaml:Depends}
+Provides:
+ ${ocaml:Provides}
+Breaks:
+ ocaml-dune (<< 2)
+Recommends: ocaml-findlib
+Description: Convert OCaml parsetrees between different major versions (Development package)
+ This library converts between parsetrees of different OCaml versions.
+ For each version, there is a snapshot of the parsetree and conversion
+ functions to the next and/or previous version.
+ .
+ This package contains the development library.

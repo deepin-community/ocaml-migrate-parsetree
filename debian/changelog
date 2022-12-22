@@ -1,0 +1,100 @@
+ocaml-migrate-parsetree (1.8.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Do no longer build libmigrate-parsetree-ocaml-doc (Closes: #987460)
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 25 Apr 2021 17:05:48 +0200
+
+ocaml-migrate-parsetree (1.8.0-1) unstable; urgency=medium
+
+  [ Stéphane Glondu ]
+  * Team upload
+  * New upstream release
+  * Fix debian/watch
+  * Bump Standards-Version to 4.5.1
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Repository, Repository-Browse.
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 12 Dec 2020 10:43:53 +0100
+
+ocaml-migrate-parsetree (1.7.3-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Bump debhelper compat level to 13
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 24 Jul 2020 14:38:25 +0200
+
+ocaml-migrate-parsetree (1.5.0-2) unstable; urgency=high
+
+  * Team upload
+  * Tighten the dependency to ocaml-dune
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 07 Feb 2020 10:30:48 +0100
+
+ocaml-migrate-parsetree (1.5.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Bump Standards-Version to 4.5.0
+  * Add Rules-Requires-Root: no
+
+ -- Stéphane Glondu <glondu@debian.org>  Wed, 29 Jan 2020 08:58:09 +0100
+
+ocaml-migrate-parsetree (1.4.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+    - remove binary packages libmigrate-parsetree-ocamlbuild-ocaml{,-dev}
+    - do no longer provide automatic doc with dh_ocamldoc
+  * Bump debhelper compat level to 12
+  * Bump Standards-Version to 4.4.0
+
+ -- Stéphane Glondu <glondu@debian.org>  Tue, 20 Aug 2019 05:41:28 +0200
+
+ocaml-migrate-parsetree (1.2.0-3) unstable; urgency=high
+
+  * Team upload
+  * Force rebuild of all packages on buildds
+
+ -- Stéphane Glondu <glondu@debian.org>  Fri, 02 Aug 2019 10:13:49 +0200
+
+ocaml-migrate-parsetree (1.2.0-2) unstable; urgency=medium
+
+  * Build-depends on opam-installer instead of opam. (Closes: #918770)
+  * Bump Standards-Version to 4.3.0 (no changes).
+  * Mark libmigrate-parsetree-ocaml-doc as Multi-Arch: foreign.
+
+ -- Andy Li <andy@onthewings.net>  Wed, 30 Jan 2019 13:58:53 +0800
+
+ocaml-migrate-parsetree (1.2.0-1) unstable; urgency=medium
+
+  * New upstream release.
+    + Update Build-Depends and d/rules. (Closes: #917058)
+
+ -- Andy Li <andy@onthewings.net>  Sun, 23 Dec 2018 21:15:28 +0800
+
+ocaml-migrate-parsetree (1.0.10-2) unstable; urgency=medium
+
+  * Fix dh_ocamldoc usage.
+  * Added as-installed test.
+
+ -- Andy Li <andy@onthewings.net>  Thu, 07 Jun 2018 05:09:39 +0800
+
+ocaml-migrate-parsetree (1.0.10-1) unstable; urgency=medium
+
+  * New upstream release.
+    + Update d/*.install and d/not-installed. (Closes: #899076)
+  * Build depends on dune (was renamed from jbuilder).
+  * Update Vcs-* from alioth to salsa.
+  * Bump Standards-Version to 4.1.4 (no change).
+  * Remove full stop in Description.
+
+ -- Andy Li <andy@onthewings.net>  Tue, 05 Jun 2018 17:23:11 +0800
+
+ocaml-migrate-parsetree (1.0.7-1) unstable; urgency=low
+
+  * Initial release. (Closes: #873896)
+
+ -- Andy Li <andy@onthewings.net>  Tue, 31 Oct 2017 15:48:28 +0800

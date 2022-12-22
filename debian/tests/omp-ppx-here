@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+cd "$(dirname "$0")/../../examples/omp_ppx_here"
+
+if [ -x '/usr/bin/ocamlopt' ]
+then
+	make
+else
+	make ppx_here.cmo
+fi
+
+make clean

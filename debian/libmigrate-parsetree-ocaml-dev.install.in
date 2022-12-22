@@ -1,0 +1,9 @@
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*dune*
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmi
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmt
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmti
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.ml
+@OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.mli
+OPT: @OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.a
+OPT: @OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmxa
+OPT: @OCamlStdlibDir@/ocaml-migrate-parsetree/{,**/}*.cmx
