@@ -1,13 +1,10 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
 
-DESTDIR=$(CURDIR)/debian/tmp
 include /usr/share/ocaml/ocamlvars.mk
 
 %:
-	dh $@ --with ocaml
+	dh $@ --with ocaml --buildsystem ocaml_dune
 
-override_dh_auto_configure:
-
-override_dh_auto_install:
-	dune install --destdir=$(DESTDIR) --prefix=/usr --libdir=..$(OCAML_STDLIB_DIR)
-	rm -f $(DESTDIR)/usr/doc/ocaml-migrate-parsetree/LICENSE.md
+override_dh_auto_test:
+# Needs cinaps

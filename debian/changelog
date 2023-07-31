@@ -1,3 +1,40 @@
+ocaml-migrate-parsetree (2.4.0-3) unstable; urgency=medium
+
+  * Team upload
+  * Include ocamlvars.mk in debian/rules
+
+ -- Stéphane Glondu <glondu@debian.org>  Sun, 23 Jul 2023 07:41:02 +0200
+
+ocaml-migrate-parsetree (2.4.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Use ocaml_dune DH buildsystem
+
+ -- Stéphane Glondu <glondu@debian.org>  Sat, 15 Jul 2023 13:55:33 +0200
+
+ocaml-migrate-parsetree (2.4.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 02 Feb 2023 03:05:38 +0100
+
+ocaml-migrate-parsetree (2.3.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Remove obsolete autopkgtest
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 27 Jan 2022 15:16:01 +0100
+
+ocaml-migrate-parsetree (2.3.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Bump Standards-Version to 4.6.0
+  * Bump debian/watch version to 4
+
+ -- Stéphane Glondu <glondu@debian.org>  Thu, 20 Jan 2022 06:31:10 +0100
+
 ocaml-migrate-parsetree (1.8.0-2) unstable; urgency=medium
 
   * Team upload
