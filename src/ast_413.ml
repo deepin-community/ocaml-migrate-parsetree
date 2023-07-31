@@ -260,10 +260,11 @@ module Parsetree = struct
 
        Invariant: n >= 2
     *)
-    | Ppat_construct of Longident.t loc * pattern option
+    | Ppat_construct of Longident.t loc * (string loc list * pattern) option
     (* C                None
-       C P              Some P
-       C (P1, ..., Pn)  Some (Ppat_tuple [P1; ...; Pn])
+       C P              Some ([], P)
+       C (P1, ..., Pn)  Some ([], Ppat_tuple [P1; ...; Pn])
+       C (type a b) P   Some ([a; b], P)
     *)
     | Ppat_variant of label * pattern option
     (* `A             (None)
@@ -812,6 +813,8 @@ module Parsetree = struct
     | Psig_modtype of module_type_declaration
     (* module type S = MT
        module type S *)
+    | Psig_modtypesubst of module_type_declaration
+    (* module type S :=  ...  *)
     | Psig_open of open_description
     (* open X *)
     | Psig_include of include_description
@@ -895,6 +898,10 @@ module Parsetree = struct
        the name of the type_declaration. *)
     | Pwith_module of Longident.t loc * Longident.t loc
     (* with module X.Y = Z *)
+    | Pwith_modtype of Longident.t loc * module_type
+    (* with module type X.Y = Z *)
+    | Pwith_modtypesubst of Longident.t loc * module_type
+    (* with module type X.Y := sig end *)
     | Pwith_typesubst of Longident.t loc * type_declaration
     (* with type X.t := ..., same format as [Pwith_type] *)
     | Pwith_modsubst of Longident.t loc * Longident.t loc
@@ -1016,6 +1023,6 @@ module Parsetree = struct
 end
 
 module Config = struct
-  let ast_impl_magic_number = "Caml1999M029"
-  let ast_intf_magic_number = "Caml1999N029"
+  let ast_impl_magic_number = "Caml1999M030"
+  let ast_intf_magic_number = "Caml1999N030"
 end

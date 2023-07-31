@@ -187,6 +187,8 @@ module Parsetree = struct
        - As the pld_type field of a label_declaration.
 
        - As a core_type of a Ptyp_object node.
+
+       - As the pval_type field of a value_description.
     *)
 
     | Ptyp_package of package_type
@@ -219,7 +221,7 @@ module Parsetree = struct
          (see 4.2 in the manual)
     *)
     | Rinherit of core_type
-    (* [ T ] *)
+    (* [ | t ] *)
 
   and object_field (*IF_CURRENT = Parsetree.object_field *) = {
     pof_desc : object_field_desc;
@@ -260,10 +262,11 @@ module Parsetree = struct
 
        Invariant: n >= 2
     *)
-    | Ppat_construct of Longident.t loc * pattern option
+    | Ppat_construct of Longident.t loc * (string loc list * pattern) option
     (* C                None
-       C P              Some P
-       C (P1, ..., Pn)  Some (Ppat_tuple [P1; ...; Pn])
+       C P              Some ([], P)
+       C (P1, ..., Pn)  Some ([], Ppat_tuple [P1; ...; Pn])
+       C (type a b) P   Some ([a; b], P)
     *)
     | Ppat_variant of label * pattern option
     (* `A             (None)
@@ -520,6 +523,7 @@ module Parsetree = struct
   and constructor_declaration (*IF_CURRENT = Parsetree.constructor_declaration *) =
     {
       pcd_name: string loc;
+      pcd_vars: string loc list;
       pcd_args: constructor_arguments;
       pcd_res: core_type option;
       pcd_loc: Location.t;
@@ -569,11 +573,12 @@ module Parsetree = struct
     }
 
   and extension_constructor_kind (*IF_CURRENT = Parsetree.extension_constructor_kind *) =
-      Pext_decl of constructor_arguments * core_type option
+      Pext_decl of string loc list * constructor_arguments * core_type option
       (*
-         | C of T1 * ... * Tn     ([T1; ...; Tn], None)
-         | C: T0                  ([], Some T0)
-         | C: T1 * ... * Tn -> T0 ([T1; ...; Tn], Some T0)
+         | C of T1 * ... * Tn     ([], [T1; ...; Tn], None)
+         | C: T0                  ([], [], Some T0)
+         | C: T1 * ... * Tn -> T0 ([], [T1; ...; Tn], Some T0)
+         | C: 'a... . T1... -> T0 (['a;...]; [T1;...], Some T0)
        *)
     | Pext_rebind of Longident.t loc
       (*
@@ -812,6 +817,8 @@ module Parsetree = struct
     | Psig_modtype of module_type_declaration
     (* module type S = MT
        module type S *)
+    | Psig_modtypesubst of module_type_declaration
+    (* module type S :=  ...  *)
     | Psig_open of open_description
     (* open X *)
     | Psig_include of include_description
@@ -895,6 +902,10 @@ module Parsetree = struct
        the name of the type_declaration. *)
     | Pwith_module of Longident.t loc * Longident.t loc
     (* with module X.Y = Z *)
+    | Pwith_modtype of Longident.t loc * module_type
+    (* with module type X.Y = Z *)
+    | Pwith_modtypesubst of Longident.t loc * module_type
+    (* with module type X.Y := sig end *)
     | Pwith_typesubst of Longident.t loc * type_declaration
     (* with type X.t := ..., same format as [Pwith_type] *)
     | Pwith_modsubst of Longident.t loc * Longident.t loc
@@ -1016,6 +1027,6 @@ module Parsetree = struct
 end
 
 module Config = struct
-  let ast_impl_magic_number = "Caml1999M029"
-  let ast_intf_magic_number = "Caml1999N029"
+  let ast_impl_magic_number = "Caml1999M031"
+  let ast_intf_magic_number = "Caml1999N031"
 end

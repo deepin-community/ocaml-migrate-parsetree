@@ -21,16 +21,9 @@ let () =
      | (4, 10) -> "410"
      | (4, 11) -> "411"
      | (4, 12) -> "412"
+     | (4, 13) -> "413"
+     | (4, 14) -> "414"
+     | (5, 0)  -> "500"
      | _ ->
-       Printf.eprintf "Unkown OCaml version %s\n" ocaml_version_str;
-       exit 1);
-  write "compiler-functions-file"
-    (if ocaml_version < (4, 06) then
-       "lt_406.ml"
-     else if ocaml_version < (4, 08) then
-       "ge_406_and_lt_408.ml"
-     else if ocaml_version < (4, 10) then
-       "ge_408_and_lt_410.ml"
-     else if ocaml_version < (4, 12) then
-       "ge_410_and_lt_412.ml"
-     else "ge_412.ml")
+       Printf.eprintf "Unknown OCaml version %s\n" ocaml_version_str;
+       exit 1)

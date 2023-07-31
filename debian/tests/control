@@ -1,3 +1,0 @@
-Tests: omp-ppx-here
-Depends: ocaml-nox, ocaml-findlib, @
-Restrictions: allow-stderr
